@@ -1,7 +1,9 @@
 import requests
+from dotenv import load_dotenv
 import os
 import numpy as np
 
+load_dotenv()
 api_key = os.getenv("API_KEY")
 parameters = {
     "function" : "TIME_SERIES_DAILY",
@@ -11,11 +13,11 @@ parameters = {
 
 news_key = os.getenv("NEWS_KEY")
 news_parameters = {
-    "apiKey": "d40106b34aa54202886ec23c615ee9f1",
+    "apiKey": news_key,
     "q": "Nvidia",
     "from": "2025-03-04",
     "to": "2025-03-04",
-    "pageSize":10,
+    "pageSize":5,
     "sortBy":"popularity"
 }
 
@@ -50,7 +52,7 @@ def percentage(x, y):
 difference = percentage(yesterday_closing_price,the_day_before_yesterday_closing_price)
 print(difference)
 
-
+#------------------------GET THE NEWS------------------------------#
 
 news_response = requests.get(url=NEWS_ENDPOINT,params=news_parameters)
 news_response.raise_for_status()
@@ -61,19 +63,12 @@ news = news_response.json()['articles']
 news_list = [news['title'] for news in news]
 print(news_list)
 
-#TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
 
-    ## STEP 2: https://newsapi.org/ 
-    # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
-
-#TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
 
 #TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
 
 
 #TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
-
-
 
 
 #Optional TODO: Format the message like this: 
