@@ -4,6 +4,9 @@ import os
 import numpy as np
 
 load_dotenv()
+STOCK_NAME = "NVDA"
+COMPANY_NAME = "Nvidia"
+
 api_key = os.getenv("API_KEY")
 parameters = {
     "function" : "TIME_SERIES_DAILY",
@@ -14,15 +17,12 @@ parameters = {
 news_key = os.getenv("NEWS_KEY")
 news_parameters = {
     "apiKey": news_key,
-    "q": "Nvidia",
+    "q":COMPANY_NAME ,
     "from": "2025-03-04",
     "to": "2025-03-04",
     "pageSize":5,
     "sortBy":"popularity"
 }
-
-STOCK_NAME = "NVDA"
-COMPANY_NAME = "Tesla Inc"
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
@@ -62,13 +62,6 @@ news = news_response.json()['articles']
 
 news_list = [news['title'] for news in news]
 print(news_list)
-
-
-
-#TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
-
-
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
 
 
 #Optional TODO: Format the message like this: 
