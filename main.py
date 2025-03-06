@@ -2,6 +2,7 @@ import requests
 from dotenv import load_dotenv
 import os
 import numpy as np
+from ui import Ui
 
 load_dotenv()
 STOCK_NAME = "NVDA"
@@ -63,15 +64,15 @@ news = news_response.json()['articles']
 news_list = [news['title'] for news in news]
 print(news_list)
 
-
+app = Ui()
 #Optional TODO: Format the message like this: 
 """
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
+NVDA: 🔺2%
+Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (NVDA)?. 
 Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
 or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
+"NVDA: 🔻5%
+Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (NVDA)?. 
 Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
 """
 
