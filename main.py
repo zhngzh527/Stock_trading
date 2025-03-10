@@ -21,7 +21,7 @@ news_parameters = {
     "q":COMPANY_NAME ,
     "from": "2025-03-04",
     "to": "2025-03-04",
-    "pageSize":5,
+    "pageSize":3,
     "sortBy":"popularity"
 }
 

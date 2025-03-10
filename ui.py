@@ -23,7 +23,7 @@ class Ui:
         self.price = self.canvas.create_text(
             300,
             100,
-            text = "$200.12",
+            text = "$placeholder",
             font = FONT,
             fill = "#76b900"
         )
@@ -31,7 +31,7 @@ class Ui:
         self.changed = self.canvas.create_text(
             300,
             150,
-            text = "100%",
+            text = "placeholder",
             font = FONT,
             fill = "#76b900"
         )
@@ -53,7 +53,6 @@ class Ui:
             width = 380,
             fill = "green"
         )
-
 
         self.canvas.pack()
 
